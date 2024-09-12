@@ -30,7 +30,7 @@ STATIC=
 #PROFILE=-pg
 PROFILE=
 
-COPTS=-c -Wall -Wextra -std=c11 -DOS_LINUX $(PROFILE) -flto
+COPTS=-c -Wall -Wextra -std=c11 -DOS_LINUX -D_XOPEN_SOURCE=700 $(PROFILE) -flto
 ifeq ($(OPSYS),macos)
 COPTS+=-Oz -I/usr/local/opt/readline/include
 else
