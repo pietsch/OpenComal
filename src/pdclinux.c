@@ -24,6 +24,7 @@
 #include <sys/stat.h>
 #include <sys/types.h>
 #include <unistd.h>
+#include <stdlib.h>
 
 #include <readline/readline.h>
 #include <readline/history.h>
@@ -548,7 +549,7 @@ PUBLIC void sys_sys_exp(struct exp_list *exproot, void **result, enum
                                   "SYS(sbrk) takes no further parameters");
 
                 *result = cell_alloc(INT_CPOOL);
-		**( (long **) result )=(long)sbrk(0);
+		**( (long **) result )=(long)malloc(0);
                 *type = V_INT;
 	} else if (strcmp(cmd, "now") == 0) {
                 if (exproot->next)
